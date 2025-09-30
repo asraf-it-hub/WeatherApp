@@ -110,7 +110,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Display current weather data
+  // Display current weather data
 function displayWeather(data) {
   weatherCard.classList.remove('hidden');
   cityName.textContent = `${data.name}, ${data.sys.country}`;
@@ -121,7 +121,7 @@ function displayWeather(data) {
   pressure.innerHTML = `<i class="fas fa-thermometer-full"></i> ${data.main.pressure} hPa`;
   sunrise.innerHTML = `<i class="fas fa-sun"></i> ${formatTime(data.sys.sunrise)}`;
   sunset.innerHTML = `<i class="fas fa-moon"></i> ${formatTime(data.sys.sunset)}`;
- weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+  weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
   weatherIcon.alt = data.weather[0].main;
 
   // Change background image based on condition
