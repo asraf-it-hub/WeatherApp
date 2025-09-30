@@ -5,18 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>World Weather Pro</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div id="bg-gradient"></div>
+  <div id="loading" class="loading hidden">Loading...</div>
 
   <div class="container glass-card">
-    <h1><span class="globe">🌎</span> World Weather Pro</h1>
+    <header class="header">
+      <h1><span class="globe">🌎</span> World Weather Pro</h1>
+      <div class="search-history-container">
+        <button id="historyBtn" class="history-btn" title="Search History"><i class="fas fa-history"></i></button>
+        <div id="searchHistory" class="search-history hidden">
+          <h3>Recent Searches</h3>
+          <ul id="historyList"></ul>
+        </div>
+      </div>
+    </header>
 
     <div class="search-row">
-      <input type="text" id="cityInput" placeholder="Enter city" />
-      <button id="searchBtn">Search</button>
-      <button id="locationBtn" title="Get weather for current location">📍</button>
-      <button id="unitToggle">°F/°C</button>
+      <input type="text" id="cityInput" placeholder="Enter city" autocomplete="off" aria-label="Enter city name"/>
+      <button id="searchBtn" aria-label="Search weather"><i class="fas fa-search"></i></button>
+      <button id="locationBtn" title="Get weather for current location" aria-label="Get current location weather">📍</button>
+      <button id="unitToggle" aria-label="Toggle temperature units">°C/°F</button>
     </div>
 
     <div id="weatherCard" class="weather-card hidden">
@@ -29,12 +40,17 @@
       </div>
       <h2 id="cityName"></h2>
       <div class="extra-info">
-        <span id="humidity"></span>
-        <span id="wind"></span>
-        <span id="pressure"></span>
-        <span id="sunrise"></span>
-        <span id="sunset"></span>
+        <span id="humidity" class="info-item"><i class="fas fa-tint"></i> Humidity</span>
+        <span id="wind" class="info-item"><i class="fas fa-wind"></i> Wind</span>
+        <span id="pressure" class="info-item"><i class="fas fa-thermometer-full"></i> Pressure</span>
+        <span id="sunrise" class="info-item"><i class="fas fa-sun"></i> Sunrise</span>
+        <span id="sunset" class="info-item"><i class="fas fa-moon"></i> Sunset</span>
       </div>
+    </div>
+
+    <div id="forecastContainer" class="forecast-container hidden">
+      <h3>5-Day Forecast</h3>
+      <div id="forecast" class="forecast"></div>
     </div>
 
     <p id="errorMsg" class="error hidden"></p>
