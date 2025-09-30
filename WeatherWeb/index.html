@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Weather Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="bg-gradient"></div>
+
+  <div class="container glass-card">
+    <h1><span class="globe">🌎</span> World Weather Pro</h1>
+
+    <div class="search-row">
+      <input type="text" id="cityInput" placeholder="Enter city" />
+      <button id="searchBtn">Search</button>
+      <button id="locationBtn" title="Get weather for current location">📍</button>
+      <button id="unitToggle">°F/°C</button>
+    </div>
+
+    <div id="weatherCard" class="weather-card hidden">
+      <div class="main-weather">
+        <img id="weatherIcon" alt="Weather Icon" class="icon" />
+        <div>
+          <span id="temperature" class="temp"></span>
+          <span id="condition" class="condition"></span>
+        </div>
+      </div>
+      <h2 id="cityName"></h2>
+      <div class="extra-info">
+        <span id="humidity"></span>
+        <span id="wind"></span>
+        <span id="pressure"></span>
+        <span id="sunrise"></span>
+        <span id="sunset"></span>
+      </div>
+    </div>
+
+    <p id="errorMsg" class="error hidden"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
